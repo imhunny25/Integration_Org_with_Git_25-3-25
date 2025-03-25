@@ -1,0 +1,46 @@
+<template>
+    <lightning-card title="User Pencard Details" icon-name="standard:person_account">
+
+        <template lwc:if={isPencardDetails}>
+            <div class="slds-grid slds-wrap">
+                <div
+                    class="slds-col slds-small-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12 slds-p-horizontal_medium">
+                    <lightning-input type="text" label="Enter Pen Number" placeholder="type here..." required
+                        onchange={pencardNumberHandler}></lightning-input>
+                </div>
+                <div
+                    class="slds-col slds-small-size_12-of-12 slds-medium-size_12-of-12 slds-large-size_12-of-12 slds-align_absolute-center slds-p-top_x-large">
+                    <lightning-button variant="brand" label="Get Pencard Details" title="Primary action"
+                        disabled={disableButton} onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+                </div>
+            </div>
+        </template>
+        <template lwc:else>
+            <template if:true={userData}>
+                {userData}
+        <div class="slds-m-around_medium">
+            <lightning-layout multiple-rows>
+                <lightning-layout-item size="6">
+                    <!-- <p><strong>First Name:</strong> {userData.data.firstName}</p> -->
+                    <p><strong>Last Name:</strong> {userData.data.lastName}</p>
+                    <p><strong>Full Name:</strong> {userData.data.fullName}</p>
+                    <p><strong>Gender:</strong> {userData.data.gender}</p>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="6">
+                    <p><strong>DOB:</strong> {userData.data.dob}</p>
+                    <p><strong>Aadhaar Linked:</strong> {userData.data.aadhaarLinked}</p>
+                    <p><strong>Masked Aadhaar:</strong> {userData.data.maskedAadhaarNumber}</p>
+                    <p><strong>PAN:</strong> {userData.data.pan}</p>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="12">
+                    <p><strong>Address:</strong> {userData.data.address}</p>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+        </template>
+    </template>
+       
+    </lightning-card>
+</template>

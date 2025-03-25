@@ -1,0 +1,35 @@
+<apex:page id="thePage" lightningStylesheets="true" showHeader="true" controller="PS_SalesforceTokenUtils" >
+    <script>
+    window.onload = function(){
+        let code = '{!$CurrentPage.parameters.code}';
+        if( code ){
+            fetchAccessToken(); // Action Function
+        }
+    }
+    </script>
+    <apex:form id="theForm" >
+        <apex:outputPanel id="errorMessage">
+        </apex:outputPanel>
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:actionStatus id="theStatus">
+            <apex:facet name="start">
+                <div class="waitingSearchdiv" id="el_loading" style="background-color: #fbfbfb; height:100%; opacity:0.65; width:100%">
+                    <div class="watingHolder" style="top:100px; widht:91px">
+                        <img class="waitingImage"
+                             src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loa
+                                  ding-loading-gif-animation_2734139.png!sw800" title="Please
+                                                                                       Wait..." />
+                        <span class="waitingDescription">Loading...</span>
+                    </div>
+                </div>
+            </apex:facet>
+        </apex:actionStatus>
+        <apex:actionFunction name="fetchAccessToken" status="theStatuserrorMessafge" action="{!getAccessToken}" reRender="theForm" />
+        
+        <apex:pageBlock >
+        <apex:pageBlockButtons >
+            <apex:commandButton value="Authorise Salesforce Account" status="theStatus errorMessage" action="{!getAuthCode}" />
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

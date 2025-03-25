@@ -1,0 +1,45 @@
+<template>
+    <lightning-card variant="Narrow" title="E-Sign With Aadhar Card" icon-name="standard:account">
+        <lightning-button-icon icon-name="utility:down" variant="border-filled" alternative-text="Show More"
+            slot="actions"></lightning-button-icon>
+
+            <div class="slds-grid slds-wrap">
+                <div
+                    class="slds-col slds-small-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12 slds-p-horizontal_medium">
+                    <lightning-input type="text" label="Name" placeholder="type here..." required
+                        onchange={nameHandler}></lightning-input>
+                </div>
+                <div
+                    class="slds-col slds-small-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12 slds-p-horizontal_medium">
+                    <lightning-input type="number" label="Aadhaar Number" placeholder="type here..." required
+                        onchange={numberHandler}></lightning-input>
+                </div>
+            </div>
+            <div class="slds-grid slds-wrap">
+                <div
+                    class="slds-col slds-small-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12 slds-p-horizontal_medium">
+                    <lightning-file-upload label="Attach receipt" name="fileUploader" accept={acceptedFormats}
+                    onuploadfinished={handleUploadFinished} multiple>
+                </lightning-file-upload>
+                </div>
+                <div
+                    class="slds-col slds-small-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12 slds-p-horizontal_medium slds-p-top_large">
+                    <lightning-button variant="success" label="Approve" title="Approve" onclick={handleeSign}
+                    icon-name="utility:approval" class="slds-p-around_xxx-small">
+                </lightning-button>
+                </div>
+            </div>
+
+            <template if:true={kycUrl}>
+                <p>
+                    <a href={kycUrl} target="_blank" rel="noopener noreferrer">
+                        Click here to view KYC Document
+                    </a>
+                </p>
+            </template>
+            <template if:false={kycUrl}>
+                <p>Loading URL...</p>
+            </template>
+        <p slot="footer">Card Footer</p>
+    </lightning-card>
+</template>
