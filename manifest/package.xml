@@ -30,6 +30,10 @@
 		<name>CustomField</name>
 	</types>
 	<types>
+		<members>Industry_Settings__c</members>
+		<name>CustomObject</name>
+	</types>
+	<types>
 		<members>*</members>
 		<name>LightningComponentBundle</name>
 	</types>
