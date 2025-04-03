@@ -26,6 +26,7 @@
 	</types>
 	<types>
 		<members>Account.Max_Opportunity__c</members>
+		<members>Account.Number_of_Products__c</members>
 		<members>Account.Total_Budget__c</members>
 		<name>CustomField</name>
 	</types>
