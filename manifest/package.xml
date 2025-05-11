@@ -28,9 +28,11 @@
 		<members>Account.Max_Opportunity__c</members>
 		<members>Account.Number_of_Products__c</members>
 		<members>Account.Total_Budget__c</members>
+		<members>Account.VIP_Status__c</members>
 		<name>CustomField</name>
 	</types>
 	<types>
+		<members>Audit_Log__c</members>
 		<members>Employee__c</members>
 		<members>Tech_Firm__c</members>
 		<name>CustomObject</name>
